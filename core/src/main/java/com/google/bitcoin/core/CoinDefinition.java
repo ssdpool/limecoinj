@@ -15,9 +15,9 @@ import java.util.Vector;
 public class CoinDefinition {
 
 
-    public static final String coinName = "LimeCoin";
-    public static final String coinTicker = "DGC";
-    public static final String coinURIScheme = "limecoin";
+    public static final String coinName = "Quebecoin";
+    public static final String coinTicker = "QBC";
+    public static final String coinURIScheme = "quebecoin";
     public static final String cryptsyMarketId = "26";
     public static final String cryptsyMarketCurrency = "BTC";
     public static final String PATTERN_PRIVATE_KEY_START = "6";
@@ -29,13 +29,13 @@ public class CoinDefinition {
     public static final CoinPrecision coinPrecision = CoinPrecision.Coins;
 
 
-    public static final String BLOCKEXPLORER_BASE_URL_PROD = "http://limecoin.coinexplorers.com/";    //blockr.io
+    public static final String BLOCKEXPLORER_BASE_URL_PROD = "http://http://cryptexplorer.com/";    //blockr.io
     public static final String BLOCKEXPLORER_ADDRESS_PATH = "address/";             //blockr.io path
     public static final String BLOCKEXPLORER_TRANSACTION_PATH = "tx/";              //blockr.io path
     public static final String BLOCKEXPLORER_BLOCK_PATH = "block/";                 //blockr.io path
     public static final String BLOCKEXPLORER_BASE_URL_TEST = BLOCKEXPLORER_BASE_URL_PROD;
 
-    public static final String DONATION_ADDRESS = "8te616mgL3DM9H7dvPpajeidb6ng6HPxc1";  //HashEngineering donation DGC address
+    public static final String DONATION_ADDRESS = "QN1etbhZHGxWVAmXcRjDcWq54JhMchtdyr";  //donation QBC address
 
     enum CoinHash {
         SHA256,
@@ -46,9 +46,9 @@ public class CoinDefinition {
 
     public static boolean checkpointFileSupport = true;
 
-    public static final int TARGET_TIMESPAN = (int)(36 * 10 * 60);  // 6 hours per difficulty cycle, on average.
-    public static final int TARGET_SPACING = (int)(10 * 60);  // 10 minutes seconds per block.
-    public static final int INTERVAL = TARGET_TIMESPAN / TARGET_SPACING;  //36 blocks
+    public static final int TARGET_TIMESPAN = (int)(24 * 60 * 60);  // 1 day per difficulty cycle, on average.
+    public static final int TARGET_SPACING = (int)(2.5 * 60);  // 2.5 minutes seconds per block.
+    public static final int INTERVAL = TARGET_TIMESPAN / TARGET_SPACING;  //576 blocks
 
     public static final int getInterval(int height, boolean testNet) {
             return INTERVAL;      //108
@@ -61,77 +61,88 @@ public class CoinDefinition {
             return TARGET_TIMESPAN;    //72 min
     }
 
-    public static int spendableCoinbaseDepth = 25; //main.h: static const int COINBASE_MATURITY
-    public static final BigInteger MAX_MONEY = BigInteger.valueOf(21000000).multiply(Utils.COIN);                 //main.h:  MAX_MONEY
+    public static int spendableCoinbaseDepth = 100; //main.h: static const int COINBASE_MATURITY
+    public static final BigInteger MAX_MONEY = BigInteger.valueOf(42000000).multiply(Utils.COIN);                 //main.h:  MAX_MONEY
     //public static final String MAX_MONEY_STRING = "200000000";     //main.h:  MAX_MONEY
 
     public static final BigInteger DEFAULT_MIN_TX_FEE = BigInteger.valueOf(100000);   // MIN_TX_FEE
     public static final BigInteger DUST_LIMIT = BigInteger.valueOf(100000); //main.h CTransaction::GetMinFee        0.01 coins
 
-    public static final int PROTOCOL_VERSION = 70002;          //version.h PROTOCOL_VERSION
-    public static final int MIN_PROTOCOL_VERSION = 70002;        //version.h MIN_PROTO_VERSION
+    public static final int PROTOCOL_VERSION = 70020;          //version.h PROTOCOL_VERSION
+    public static final int MIN_PROTOCOL_VERSION = 70010;        //version.h MIN_PROTO_VERSION
 
-    public static final int BLOCK_CURRENTVERSION = 1;   //CBlock::CURRENT_VERSION
+    public static final int BLOCK_CURRENTVERSION = 2;   //CBlock::CURRENT_VERSION
     public static final int MAX_BLOCK_SIZE = 1 * 1000 * 1000;
 
 
     public static final boolean supportsBloomFiltering = false; //Requires PROTOCOL_VERSION 70000 in the client
 
-    public static final int Port    = 9030;       //protocol.h GetDefaultPort(testnet=false)
-    public static final int TestPort = 19030;     //protocol.h GetDefaultPort(testnet=true)
+    public static final int Port    = 56790;       //protocol.h GetDefaultPort(testnet=false)
+    public static final int TestPort = 46790;     //protocol.h GetDefaultPort(testnet=true)
 
     //
     //  Production
     //
-    public static final int AddressHeader = 19;             //base58.h CBitcoinAddress::PUBKEY_ADDRESS
+    public static final int AddressHeader = 58;             //base58.h CBitcoinAddress::PUBKEY_ADDRESS
     public static final int p2shHeader = 5;             //base58.h CBitcoinAddress::SCRIPT_ADDRESS
-    public static final boolean allowBitcoinPrivateKey = true; //for backward compatibility with previous version of digitalcoin
+    public static final boolean allowBitcoinPrivateKey = false; //for backward compatibility with previous version of digitalcoin
     public static final int dumpedPrivateKeyHeader = 128;   //common to all coins
-    public static final long PacketMagic = 0xfbc0b6db;      //0xfb, 0xc0, 0xb6, 0xdb
+    public static final long PacketMagic = 0xd3edcaf1;      //0xfb, 0xc0, 0xb6, 0xdb
 
     //Genesis Block Information from main.cpp: LoadBlockIndex
     static public long genesisBlockDifficultyTarget = (0x1e0ffff0L);         //main.cpp: LoadBlockIndex
-    static public long genesisBlockTime = 1396799176L;                       //main.cpp: LoadBlockIndex
-    static public long genesisBlockNonce = (33661576);                         //main.cpp: LoadBlockIndex
-    static public String genesisHash = "00000ca3f904bc6db2ffc72f800858d4d0f56f14ca412c17794c3bd31161acc0"; //main.cpp: hashGenesisBlock
-    static public int genesisBlockValue = 100;                                                              //main.cpp: LoadBlockIndex
+    static public long genesisBlockTime = 1395522490L;                       //main.cpp: LoadBlockIndex
+    static public long genesisBlockNonce = (884876);                         //main.cpp: LoadBlockIndex
+    static public String genesisHash = "00000948015ca05a2197f8f676476c9dbc11de07c87e1a46f2331ea10f33087d"; //main.cpp: hashGenesisBlock
+    static public int genesisBlockValue = 26;                                                              //main.cpp: LoadBlockIndex
     //taken from the raw data of the block explorer
-    static public String genesisXInBytes = "04ffff001d01044c5b6c696d65636f696e20736520636f6e7665727469726120656e20756e61206465206c6173206d6f6e65646173206d6173207365677572612064656c206d65726361646f2c206368656361206e75657374726f73206176616e636573";   //"limecoin se convertira en una de las monedas mas segura del mercado, checa nuestros avances"
-    static public String genessiXOutBytes = "040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9";
+    static public String genesisTXInBytes = "04ffff001d01044c554c615072657373652032322f4d61722f32303134204c65205175c3a96265632061206c6573206d6f79656e7320646520646576656e697220756e20706179732c207265636f6e6e61c3ae7420436f75696c6c617264";   // "LaPresse 22/Mar/2014 Le Québec a les moyens de devenir un pays, reconnaît Couillard"
+    static public String genesisTXOutBytes = "41040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9ac";
 
     //net.cpp strDNSSeed
     static public String[] dnsSeeds = new String[] {
-            "209.208.111.8",
-            "209.208.109.194",
-            "209.208.108.71",
-            "69.28.94.67"
+            "dnsseed.service-crypto.com",
+            "qbcseed.service-crypto.com"
     };
 
     public static int minBroadcastConnections = 0;   //0 for default; we need more peers.
 
     //
-    // TestNet - limecoin - not tested
+    // TestNet - quebecoin - not tested
     //
     public static final boolean supportsTestNet = false;
     public static final int testnetAddressHeader = 111;             //base58.h CBitcoinAddress::PUBKEY_ADDRESS_TEST
     public static final int testnetp2shHeader = 196;             //base58.h CBitcoinAddress::SCRIPT_ADDRESS_TEST
-    public static final long testnetPacketMagic = 0xfcc1b7dc;      //0xfc, 0xc1, 0xb7, 0xdc
-    public static final String testnetGenesisHash = "5e039e1ca1dbf128973bf6cff98169e40a1b194c3b91463ab74956f413b2f9c8";
+    public static final long testnetPacketMagic = 0xd3edcaf1;      //0xd3, 0xed, 0xca, 0xf1
+    public static final String testnetGenesisHash = "00000480b7d253fa603971195bae6b4fa10c65126c26c44c648ac2b5fc3fecbb";
     static public long testnetGenesisBlockDifficultyTarget = (0x1e0ffff0L);         //main.cpp: LoadBlockIndex
-    static public long testnetGenesisBlockTime = 999999L;                       //main.cpp: LoadBlockIndex
-    static public long testnetGenesisBlockNonce = (99999);                         //main.cpp: LoadBlockIndex
+    static public long testnetGenesisBlockTime = 1395522495L;                       //main.cpp: LoadBlockIndex
+    static public long testnetGenesisBlockNonce = (184248);                         //main.cpp: LoadBlockIndex
 
 
 
 
 
-    //main.cpp GetBlockValue(height, fee)
+    //main.cpp GetBlockValue(height, fee)  //still to do
     public static final BigInteger GetBlockReward(int height)
     {
         int COIN = 1;
-        BigInteger nSubsidy = Utils.toNanoCoins(100, 0);
+        BigInteger nSubsidy = Utils.toNanoCoins(26, 0);
         if (height == 1)
             nSubsidy = Utils.toNanoCoins(420000, 0);
+	if (height  < 25)
+            nSubsidy = Utils.toNanoCoins(0, 0);  // 0 Reward blocks to allow DarkGravityWave to start before distributing QBC.
+	if (height  < 49)
+            nSubsidy = Utils.toNanoCoins(1, 0);  // 1 Hour timeframe with 1 QBC block reward to allow miners to set up and be more fair to all.
+	if (height  < 73)
+            nSubsidy = Utils.toNanoCoins(4, 0);  // 1 Hour timeframe with small block reward to allow miners to set up and be more fair to all.
+	if (height  < 97)
+            nSubsidy = Utils.toNanoCoins(13, 0);  // 1 Hour timeframe with half block reward to allow miners to set up and be more fair to all.
+
+
+	// Subsidy is cut in half every 420480 blocks, which will occur approximately every 4 years
+	nSubsidy.shiftRight(height / 420480);  //  Quebecoin: 420480 blocks in ~2 years
+
         return nSubsidy;
     }
 
@@ -147,18 +158,19 @@ public class CoinDefinition {
     public static final String TESTNET_SATOSHI_KEY = "";
 
     /** The string returned by getId() for the main, production network where people trade things. */
-    public static final String ID_MAINNET = "org.digitalcoin.production";
+    public static final String ID_MAINNET = "org.quebecoin.production";
     /** The string returned by getId() for the testnet. */
-    public static final String ID_TESTNET = "org.digitalcoin.test";
+    public static final String ID_TESTNET = "org.quebecoin.test";
     /** Unit test network. */
-    public static final String ID_UNITTESTNET = "com.google.digitalcoin.unittest";
+    public static final String ID_UNITTESTNET = "com.google.quebecoin.unittest";
 
     //checkpoints.cpp Checkpoints::mapCheckpoints
     public static void initCheckpoints(Map<Integer, Sha256Hash> checkpoints)
     {
-        checkpoints.put( 3,   new Sha256Hash("000009900a75b87031c6fdfa5692299818b4337ec51089bdc38cafa0a92b4da3"));
-        checkpoints.put( 4,   new Sha256Hash("000007409c06e48341e29c5e983c5226b33eec994e107fcc28b6934a53639a30"));
-        checkpoints.put( 345, new Sha256Hash("0000000006224c943f02998d2685370b1c51138f89658aaa91213e97b9aa5a88"));
+        checkpoints.put( 5,   new Sha256Hash("00000abcc55a9231f53e7c3cc4de43720139097aa2a72916a0ad725765038916"));
+        checkpoints.put( 405, new Sha256Hash("00000000010a5becc2de4e7af1f48209383924342ed7bbbc822a63df311dc72a"));
+        checkpoints.put( 700, new Sha256Hash("0000000000d448d3f99ff853f56ebab921586e7b4de66dafdeeed0b4a4f75485"));
+        checkpoints.put( 800, new Sha256Hash("0000000000c2d5be6c8eebc3f395db1f934773db0a882fb629f6a43568c56714"));
 
     }
 

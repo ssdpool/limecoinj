@@ -799,22 +799,6 @@ public abstract class AbstractBlockChain {
     private void checkDifficultyTransitions(StoredBlock storedPrev, Block nextBlock) throws BlockStoreException, VerificationException {
         checkState(lock.isHeldByCurrentThread());
 
-        int DiffMode = 1;
-        if (params.getId().equals(NetworkParameters.ID_TESTNET)) {
-            if (storedPrev.getHeight()+1 >= 15) { DiffMode = 4; }
-            else if (storedPrev.getHeight()+1 >= 5) { DiffMode = 3; }
-        }
-        else {
-            if (storedPrev.getHeight()+1 >= 1600) { DiffMode = 4; }
-            else if (storedPrev.getHeight()+1 >= 1400) { DiffMode = 3; }
-            else if (storedPrev.getHeight()+1 >= 1200) { DiffMode = 2; }
-        }
-
-        if (DiffMode == 1) { checkDifficultyTransitions_V1(storedPrev, nextBlock); return; }
-        else if (DiffMode == 2) { checkDifficultyTransitions_V2(storedPrev, nextBlock); return;}
-        else if (DiffMode == 3) { DarkGravityWave(storedPrev, nextBlock); return;}
-        else if (DiffMode == 4) { DarkGravityWave2(storedPrev, nextBlock); return; }
-
         DarkGravityWave2(storedPrev, nextBlock);
 
         return;

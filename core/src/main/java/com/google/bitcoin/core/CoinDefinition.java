@@ -96,8 +96,8 @@ public class CoinDefinition {
     static public String genesisHash = "00000948015ca05a2197f8f676476c9dbc11de07c87e1a46f2331ea10f33087d"; //main.cpp: hashGenesisBlock
     static public int genesisBlockValue = 26;                                                              //main.cpp: LoadBlockIndex
     //taken from the raw data of the block explorer
-    static public String genesisTXInBytes = "04ffff001d01044c554c615072657373652032322f4d61722f32303134204c65205175c3a96265632061206c6573206d6f79656e7320646520646576656e697220756e20706179732c207265636f6e6e61c3ae7420436f75696c6c617264";   // "LaPresse 22/Mar/2014 Le Québec a les moyens de devenir un pays, reconnaît Couillard"
-    static public String genesisTXOutBytes = "41040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9ac";
+    static public String genesisTxInBytes = "04ffff001d01044c554c615072657373652032322f4d61722f32303134204c65205175c3a96265632061206c6573206d6f79656e7320646520646576656e697220756e20706179732c207265636f6e6e61c3ae7420436f75696c6c617264";   // "LaPresse 22/Mar/2014 Le Québec a les moyens de devenir un pays, reconnaît Couillard"
+    static public String genesisTxOutBytes = "040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9";
 
     //net.cpp strDNSSeed
     static public String[] dnsSeeds = new String[] {

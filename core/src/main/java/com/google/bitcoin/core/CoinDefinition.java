@@ -87,7 +87,7 @@ public class CoinDefinition {
     public static final int p2shHeader = 5;             //base58.h CBitcoinAddress::SCRIPT_ADDRESS
     public static final boolean allowBitcoinPrivateKey = false; //for backward compatibility with previous version of digitalcoin
     public static final int dumpedPrivateKeyHeader = 128;   //common to all coins
-    public static final long PacketMagic = 0xd3edcaf1;      //0xfb, 0xc0, 0xb6, 0xdb
+    public static final long PacketMagic = 0xd3edc9f1;      //0xfb, 0xc0, 0xb6, 0xdb
 
     //Genesis Block Information from main.cpp: LoadBlockIndex
     static public long genesisBlockDifficultyTarget = (0x1e0ffff0L);         //main.cpp: LoadBlockIndex
